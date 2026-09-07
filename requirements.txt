@@ -1,0 +1,27 @@
+numpy==1.26.4
+scipy
+matplotlib
+scikit-learn
+requests
+rdata
+
+# liquidSVM (Steinwart & Thomann) provides the Gaussian-kernel quantile SVM
+# used in Algorithm 2. It is an old, largely unmaintained package with a
+# compiled C++ core, and is not always installable via a plain `pip install
+# liquidSVM` depending on your platform/Python version. If it fails:
+#   - try an explicit older Python (3.8-3.10) in a dedicated environment,
+#   - or build from source: https://github.com/liquidSVM/liquidSVM
+#
+# Known issue on modern Python (3.11+): `import liquidSVM` fails to find its
+# compiled extension. liquidSVM's own __init__.py locates the compiled
+# library with:
+#     thenames = glob.glob(loc + '/liquidSVM*' + sysconfig.get_config_var('SO'))
+# but `sysconfig.get_config_var('SO')` was removed in favor of
+# `EXT_SUFFIX` (the old 'SO' var returns None on Python 3.11+, so the glob
+# matches nothing). Fix: in the installed package's __init__.py, change
+# 'SO' to 'EXT_SUFFIX' on line 69:
+#     thenames = glob.glob(loc + '/liquidSVM*' + sysconfig.get_config_var('EXT_SUFFIX'))
+# This patch is not part of this repo -- it
+# has to be re-applied to your local install (e.g. after any reinstall of
+# the liquidSVM package, or in every fresh virtual environment).
+liquidSVM
