@@ -18,7 +18,7 @@ source .venv/bin/activate          # .venv\Scripts\activate on Windows
 pip install -r requirements.txt
 ```
 
-`liquidSVM` is the one dependency that may need extra care — see the note
+`liquidSVM` is the one dependency that may need extra care, see the note
 in `requirements.txt`, including a one-line fix for a common import failure
 on Python 3.11+ (`sysconfig.get_config_var('SO')` → `'EXT_SUFFIX'`).
 Everything upstream of the SVM calls (data loading,
