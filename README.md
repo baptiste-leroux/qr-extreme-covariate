@@ -10,17 +10,6 @@ conditional quantiles into the extreme-covariate regime, against naive
 baselines, on daily river-flow measurements from 31 gauging stations of the
 upper Danube basin.
 
-## Repository layout
-
-```
-scripts/danube_experiments.py   the experiment script (data loading,
-                                 preprocessing, cross-validation, and the
-                                 figures used in the paper)
-requirements.txt
-NOTES_REVIEW.md                 correctness review notes and the fixes
-                                 applied while cleaning up the original code
-```
-
 ## Setup
 
 ```bash
@@ -70,8 +59,3 @@ from scripts.danube_experiments import normalize
 The dataset is downloaded on the fly from the `graphicalExtremes` R package's
 GitHub repository (`danube.rda`, Asadi et al., 2015) and parsed with the
 `rdata` package — no manual download needed.
-
-## Notes
-
-See `NOTES_REVIEW.md` for the correctness review of the original code and
-the fixes applied, plus what changed in the notebook-to-script conversion.
